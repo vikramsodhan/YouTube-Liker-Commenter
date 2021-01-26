@@ -1,4 +1,5 @@
 import os
+import time
 import pickle
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
@@ -66,8 +67,10 @@ def get_channel_videos(channel_id):
     return videos
 
 
-videos_list = get_channel_videos("UCxambigWU3QMK9UJXU2mwPg")
-print(len(videos_list))
+# Update the string with desired youtube channel id
+# BballBreakdown UCSpvjDk06HLxBaw8sZw7SkA
+# Booksin5 UCxambigWU3QMK9UJXU2mwPg
+videos_list = get_channel_videos("UCSpvjDk06HLxBaw8sZw7SkA")
 
 comment_list = [
     "I love the content keep it up!!",
@@ -139,9 +142,24 @@ def get_comments(video_Id, channel_Id):
 # comment_we_want_to_update=get_comments(videos_list[1]["snippet"]["resourceId"]["videoId"], videos_list[0]["snippet"]["channelId"])["items"][0]
 video_id_comment_check = videos_list[0]["snippet"]["resourceId"]["videoId"]
 channel_id_comment_check = videos_list[0]["snippet"]["channelId"]
-for index in range(47):
-    comment_on_videos(video_id_comment_check, channel_id_comment_check, str(index))
-    print(index)
+# for index in range(47):
+#     comment_on_videos(video_id_comment_check, channel_id_comment_check, str(index))
+#     print(index)
+
+for index, video in enumerate(videos_list):
+    # this is to like the videos
+    youtube.videos().rate(
+        id=video["snippet"]["resourceId"]["videoId"], rating="like"
+    ).execute()
+
+    # this is to comment on the 15 videos using the created comment_list
+    # note this only works for the most recent 15 videos
+    if index < 15:
+        comment_on_videos(
+            videoId=video["snippet"]["resourceId"]["videoId"],
+            channelId=video["snippet"]["channelId"],
+            comment=comment_list[index % len(comment_list)],
+        )
 
 
 # print(comment_we_want_to_update["snippet"]["topLevelComment"]["snippet"]["textOriginal"])
