@@ -13,7 +13,7 @@ if os.path.exists("token.pickle"):
     with open("token.pickle", "rb") as token:
         credentials = pickle.load(token)
 
-# If there are no valid credentials available, then either refresh the token or log in.
+# If there are no valid credentials available, then either refresh the token or logs in.
 if not credentials or not credentials.valid:
     if credentials and credentials.expired and credentials.refresh_token:
         print("Refreshing Access Token...")
