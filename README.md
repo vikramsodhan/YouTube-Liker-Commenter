@@ -2,6 +2,10 @@
 
 A program that Likes every video and comments on the latest 15 uploaded videos of a given Youtube Channel.
 
+## API
+
+This program interacts with the YouTube API, documentation found at https://developers.google.com/youtube/v3/docs
+
 ## Requirements
 
 Need to create a project at https://console.developers.google.com/ to obtain authorization credentials in order to make API requests.
@@ -12,9 +16,17 @@ Get the Channel Id of the channel you want to like and comment on. To do this re
 2. Select any video from the Videos tab
    ![Videos Tab Screenshot](README-Screenshots/Videos-Tab.png)
 3. Select the channel again in the description
+
+   ![Description Channel Screenshot](README-Screenshots/Description-Channel.png)
+
 4. Now the Channel Id will be in the URL
-   ![Videos Tab Screenshot](README-Screenshots/Videos-Tab.png)
-   Replace "Desired-YouTube-Id" with your Channel Id wrapped in ""
+   ![Description Channel Screenshot](README-Screenshots/Full-URL.png)
+   ```
+   The Channel Id is the last part of the URL, in this case
+   ESPN's Channel Id is  UCiWLfSweyRNmLpgEHekhoAg
+   ```
+
+Replace "Desired-YouTube-Id" with your Channel Id wrapped in ""
 
 ```
 71. videos_list = get_channel_videos("Desired-YouTube-Id")
@@ -37,4 +49,4 @@ comment_list = [
 ]
 ```
 
-## Enjoy
+### **All that's left is to run the program**
