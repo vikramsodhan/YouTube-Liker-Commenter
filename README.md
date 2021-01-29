@@ -10,11 +10,11 @@ Get the Channel Id of the channel you want to like and comment on. To do this re
 
 1. Go to your specified channel
 2. Select any video from the Videos tab
-
+   ![Videos Tab Screenshot](README-Screenshots/Videos-Tab.png)
 3. Select the channel again in the description
 4. Now the Channel Id will be in the URL
-
-Replace "Desired-YouTube-Id" with your Channel Id wrapped in ""
+   ![Videos Tab Screenshot](README-Screenshots/Videos-Tab.png)
+   Replace "Desired-YouTube-Id" with your Channel Id wrapped in ""
 
 ```
 71. videos_list = get_channel_videos("Desired-YouTube-Id")
