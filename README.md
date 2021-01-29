@@ -8,9 +8,11 @@ This program interacts with the YouTube API, documentation found at https://deve
 
 ## Requirements
 
-Need to create a project at https://console.developers.google.com/ to obtain authorization credentials in order to make API requests.
+Packages used for this program are located [here](requirements.txt)
 
-Get the Channel Id of the channel you want to like and comment on. To do this requires 3 steps
+Create a project at https://console.developers.google.com/ to obtain authorization credentials in order to make API requests.
+
+Get the Channel Id of the channel you want to like and comment on. To do this requires 4 steps
 
 1. Go to your specified channel
 2. Select any video from the Videos tab
@@ -49,4 +51,10 @@ comment_list = [
 ]
 ```
 
-### **All that's left is to run the program**
+## How to run
+
+From terminal use the following command to run the program
+
+```
+Python3 YouTubeLiker-Commenter.py
+```
